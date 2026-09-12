@@ -2,13 +2,322 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>Ferrow & Son Joinery — coming soon</title>
-<meta name="robots" content="noindex">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ferrow &amp; Son Joinery — Bespoke Carpenter, Braintree</title>
+<meta name="description" content="Bespoke fitted joinery in Braintree and Bocking — wardrobes, staircases, kitchen carpentry and period window repair. Fixed quotes, no surprises.">
+<style>
+  :root{
+    --ink:#2a231d;
+    --walnut:#4a3428;
+    --oak:#a9764a;
+    --oak-dark:#8a5f38;
+    --linen:#f6efe4;
+    --linen-dark:#ece1d0;
+    --green:#3f5b45;
+    --rule:#d9c9b3;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--linen);
+    color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    line-height:1.6;
+  }
+  h1,h2,h3{
+    font-family:Georgia,"Iowan Old Style","Palatino Linotype",Palatino,serif;
+    font-weight:normal;
+    color:var(--walnut);
+    line-height:1.25;
+    margin:0 0 0.5em;
+  }
+  a{color:var(--green);}
+  .wrap{max-width:1040px;margin:0 auto;padding:0 20px;}
+
+  /* header */
+  header{
+    background:var(--linen);
+    border-bottom:1px solid var(--rule);
+    position:sticky;top:0;z-index:10;
+  }
+  .header-inner{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:18px 20px;max-width:1040px;margin:0 auto;
+  }
+  .logo{
+    font-family:Georgia,"Iowan Old Style",serif;
+    font-size:1.35rem;
+    color:var(--walnut);
+    letter-spacing:0.02em;
+    text-decoration:none;
+  }
+  .logo strong{color:var(--oak-dark);}
+  nav ul{list-style:none;display:flex;gap:28px;margin:0;padding:0;}
+  nav a{
+    text-decoration:none;color:var(--ink);font-size:0.95rem;
+    border-bottom:2px solid transparent;padding-bottom:2px;
+  }
+  nav a:hover{border-color:var(--oak);}
+  @media (max-width:640px){
+    .header-inner{flex-direction:column;gap:12px;align-items:flex-start;}
+    nav ul{gap:16px;flex-wrap:wrap;}
+  }
+
+  /* hero */
+  .hero{
+    background:
+      linear-gradient(180deg, rgba(74,52,40,0.04), rgba(74,52,40,0)),
+      repeating-linear-gradient(100deg, var(--linen) 0px, var(--linen) 38px, var(--linen-dark) 39px, var(--linen) 41px);
+    padding:72px 20px 64px;
+    border-bottom:1px solid var(--rule);
+  }
+  .hero-inner{max-width:1040px;margin:0 auto;}
+  .hero .kicker{
+    text-transform:uppercase;letter-spacing:0.12em;font-size:0.78rem;
+    color:var(--oak-dark);font-weight:600;margin-bottom:14px;
+  }
+  .hero h1{font-size:2.5rem;max-width:20ch;}
+  .hero p.lede{font-size:1.15rem;max-width:46ch;color:#3d332b;margin:18px 0 30px;}
+  .btn{
+    display:inline-block;background:var(--walnut);color:#fdf9f2;
+    padding:13px 26px;border-radius:2px;text-decoration:none;
+    font-size:0.95rem;letter-spacing:0.02em;
+  }
+  .btn:hover{background:var(--oak-dark);}
+  .btn-outline{
+    display:inline-block;border:1px solid var(--walnut);color:var(--walnut);
+    padding:12px 25px;border-radius:2px;text-decoration:none;font-size:0.95rem;margin-left:12px;
+  }
+  @media (max-width:520px){ .btn-outline{margin-left:0;margin-top:10px;} }
+
+  /* sections */
+  section{padding:60px 20px;}
+  .section-head{max-width:640px;margin-bottom:36px;}
+  .section-head .kicker{
+    text-transform:uppercase;letter-spacing:0.12em;font-size:0.75rem;
+    color:var(--oak-dark);font-weight:600;margin-bottom:10px;
+  }
+
+  /* services */
+  .services{background:#fff;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);}
+  .service-grid{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:1px;
+    background:var(--rule);border:1px solid var(--rule);
+  }
+  .service{background:#fff;padding:28px 26px;}
+  .service h3{font-size:1.08rem;margin-bottom:8px;}
+  .service p{margin:0;font-size:0.94rem;color:#4a4038;}
+  @media (max-width:760px){ .service-grid{grid-template-columns:1fr 1fr;} }
+  @media (max-width:520px){ .service-grid{grid-template-columns:1fr;} }
+
+  /* about / usp */
+  .about-grid{display:grid;grid-template-columns:1.1fr 0.9fr;gap:48px;align-items:start;}
+  @media (max-width:760px){ .about-grid{grid-template-columns:1fr;} }
+  .about-grid p{color:#3d332b;}
+  .stat-row{display:flex;gap:36px;margin-top:28px;flex-wrap:wrap;}
+  .stat{border-left:3px solid var(--oak);padding-left:14px;}
+  .stat b{display:block;font-size:1.7rem;font-family:Georgia,serif;color:var(--walnut);}
+  .stat span{font-size:0.85rem;color:#5a5048;}
+
+  .usp-list{list-style:none;margin:0;padding:0;}
+  .usp-list li{
+    padding:16px 0;border-bottom:1px solid var(--rule);
+    display:flex;gap:14px;align-items:flex-start;
+  }
+  .usp-list li:last-child{border-bottom:none;}
+  .usp-mark{
+    flex:none;width:26px;height:26px;border-radius:50%;
+    background:var(--green);color:#fff;font-size:0.85rem;
+    display:flex;align-items:center;justify-content:center;margin-top:2px;
+  }
+  .usp-list h4{margin:0 0 4px;font-size:1rem;color:var(--walnut);font-weight:600;font-family:inherit;}
+  .usp-list p{margin:0;font-size:0.92rem;color:#4a4038;}
+
+  /* testimonials */
+  .testimonials{background:var(--walnut);color:#f3ece1;}
+  .testimonials .section-head .kicker{color:#d9b78f;}
+  .testimonials h2{color:#fdf9f2;}
+  .quote-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px;}
+  @media (max-width:700px){ .quote-grid{grid-template-columns:1fr;} }
+  blockquote{
+    margin:0;background:rgba(255,255,255,0.06);border-left:3px solid var(--oak);
+    padding:22px 24px;font-size:1.02rem;font-family:Georgia,serif;font-style:italic;
+  }
+  blockquote footer{
+    margin-top:14px;font-size:0.82rem;font-style:normal;color:#d9c9b3;
+  }
+
+  /* gallery placeholder */
+  .swatch-row{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;}
+  @media (max-width:640px){ .swatch-row{grid-template-columns:1fr 1fr;} }
+  .swatch{
+    aspect-ratio:4/3;border:1px solid var(--rule);
+    display:flex;align-items:center;justify-content:center;
+    font-size:0.8rem;color:#8a7e70;text-align:center;padding:10px;
+    background:repeating-linear-gradient(45deg, var(--linen-dark) 0px, var(--linen-dark) 8px, var(--linen) 9px, var(--linen) 17px);
+  }
+
+  /* contact */
+  .contact{background:#fff;border-top:1px solid var(--rule);}
+  .contact-grid{display:grid;grid-template-columns:0.9fr 1.1fr;gap:48px;}
+  @media (max-width:760px){ .contact-grid{grid-template-columns:1fr;} }
+  .contact dl{margin:0;}
+  .contact dt{font-size:0.78rem;text-transform:uppercase;letter-spacing:0.08em;color:var(--oak-dark);margin-top:20px;}
+  .contact dt:first-child{margin-top:0;}
+  .contact dd{margin:4px 0 0;font-size:1rem;}
+
+  .demo-notice{
+    background:#fbf3e6;border:1px solid var(--oak);color:#5a4326;
+    padding:14px 16px;border-radius:3px;font-size:0.88rem;margin-bottom:18px;
+  }
+  form{display:grid;gap:14px;}
+  form label{font-size:0.85rem;color:#5a5048;display:block;margin-bottom:5px;}
+  form input, form textarea{
+    width:100%;padding:11px 12px;border:1px solid var(--rule);border-radius:2px;
+    font-family:inherit;font-size:0.95rem;background:#faf6ef;color:#a49a8c;
+  }
+  form button{
+    justify-self:start;background:var(--rule);color:#8a7e70;border:none;
+    padding:12px 26px;border-radius:2px;font-size:0.95rem;cursor:not-allowed;
+  }
+
+  footer{
+    background:var(--linen-dark);border-top:1px solid var(--rule);
+    padding:28px 20px;text-align:center;
+  }
+  footer .disclosure{font-size:0.82rem;color:#6b6055;max-width:52ch;margin:0 auto 8px;}
+  footer .copy{font-size:0.78rem;color:#8a7e70;}
+</style>
 </head>
-<body style="font-family: sans-serif; max-width: 40em; margin: 4em auto; line-height:1.5;">
-<h1>Ferrow & Son Joinery</h1>
-<p>Page under construction.</p>
-<hr>
-<p style="font-size:0.85em;color:#666;">This is an example site built by SiteCollab to demonstrate our work. It is not a real business.</p>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a class="logo" href="#top">Ferrow <strong>&amp; Son</strong> Joinery</a>
+    <nav>
+      <ul>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#work">Our Work</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<div id="top"></div>
+<section class="hero">
+  <div class="hero-inner">
+    <p class="kicker">Bespoke Carpenter &amp; Joiner — Braintree, Essex</p>
+    <h1>Built in the workshop.<br>Fitted once, fitted right.</h1>
+    <p class="lede">Fitted wardrobes, staircases and kitchen joinery, measured and made for your home — not adjusted on site from something off the shelf. One quote, no changes.</p>
+    <a class="btn" href="#contact">Get a fixed quote</a>
+    <a class="btn-outline" href="#work">See our work</a>
+  </div>
+</section>
+
+<section class="services" id="services">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="kicker">What we do</p>
+      <h2>Joinery, built to fit — not fitted to make it work</h2>
+    </div>
+  </div>
+  <div class="service-grid">
+    <div class="service"><h3>Fitted wardrobes &amp; alcove units</h3><p>Measured for the room, built in the workshop, fitted in a day.</p></div>
+    <div class="service"><h3>Bespoke staircases</h3><p>New builds, replacements and repairs — timber matched to your home.</p></div>
+    <div class="service"><h3>Kitchen carpentry</h3><p>Worktops, cabinetry adjustments and finish work around new kitchens.</p></div>
+    <div class="service"><h3>Sash &amp; period window repair</h3><p>Repairing original joinery rather than ripping it out where we can.</p></div>
+    <div class="service"><h3>Skirting, architrave &amp; finish carpentry</h3><p>The detail work that gets skipped when a job is rushed.</p></div>
+    <div class="service"><h3>Loft &amp; small extension carpentry</h3><p>Structural and finish carpentry for loft conversions and small extensions.</p></div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap about-grid">
+    <div>
+      <p class="kicker" style="text-transform:uppercase;letter-spacing:.12em;font-size:.75rem;color:var(--oak-dark);font-weight:600;">Our story</p>
+      <h2>Started because commercial sites don't leave room for finish work</h2>
+      <p>Dave Ferrow spent twelve years doing shopfitting joinery before starting on his own in 2009 — tired of being told to rush finish carpentry to keep a commercial job moving. Since 2014 the workshop's been based on the Springwood industrial estate in Braintree, where every fitted piece is measured, cut and built before it ever reaches your house.</p>
+      <p>No sales team, no subcontracted fitters — the person who measures your room is the person who builds and fits the work.</p>
+      <div class="stat-row">
+        <div class="stat"><b>17</b><span>years trading</span></div>
+        <div class="stat"><b>1</b><span>workshop, Braintree</span></div>
+        <div class="stat"><b>0</b><span>subcontracted fitters</span></div>
+      </div>
+    </div>
+    <div>
+      <p class="kicker" style="text-transform:uppercase;letter-spacing:.12em;font-size:.75rem;color:var(--oak-dark);font-weight:600;">Why it's different</p>
+      <ul class="usp-list">
+        <li><span class="usp-mark">✓</span><div><h4>Built off-site, fitted once</h4><p>Every piece is measured and made in the workshop — not adjusted on the day to make it fit.</p></div></li>
+        <li><span class="usp-mark">✓</span><div><h4>One quote, no changes</h4><p>The price agreed at the start is the price you pay. No revised quotes halfway through.</p></div></li>
+        <li><span class="usp-mark">✓</span><div><h4>Turns up when we say</h4><p>A start date is a start date. No juggling three jobs against yours.</p></div></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="testimonials">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="kicker">What people say</p>
+      <h2>From recent jobs around Braintree</h2>
+    </div>
+    <div class="quote-grid">
+      <blockquote>“Quoted once, no changes, no messing about. Exactly what we asked for.”<footer>— Bocking</footer></blockquote>
+      <blockquote>“Redid our staircase after two other quotes fell through on timing. Turned up on the day he said.”<footer>— Braintree</footer></blockquote>
+    </div>
+  </div>
+</section>
+
+<section id="work">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="kicker">Recent jobs</p>
+      <h2>A sample of work around Braintree and Bocking</h2>
+    </div>
+    <div class="swatch-row">
+      <div class="swatch">Fitted wardrobe — Bocking</div>
+      <div class="swatch">Staircase rebuild — Braintree</div>
+      <div class="swatch">Kitchen joinery — Cressing</div>
+      <div class="swatch">Sash window repair — Braintree</div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap contact-grid">
+    <div>
+      <p class="kicker" style="text-transform:uppercase;letter-spacing:.12em;font-size:.75rem;color:var(--oak-dark);font-weight:600;">Get in touch</p>
+      <h2>Ask about a fixed quote</h2>
+      <dl>
+        <dt>Workshop</dt><dd>Springwood Industrial Estate, Braintree, Essex</dd>
+        <dt>Coverage</dt><dd>Braintree, Bocking, Cressing &amp; surrounding villages</dd>
+        <dt>Hours</dt><dd>Mon–Fri, 8am–5pm</dd>
+      </dl>
+    </div>
+    <div>
+      <div class="demo-notice">This is a demo site built by SiteCollab. The form below is disabled — no messages are sent or stored.</div>
+      <form onsubmit="return false;">
+        <div>
+          <label for="name">Name</label>
+          <input id="name" type="text" placeholder="Your name" disabled>
+        </div>
+        <div>
+          <label for="job">What do you need done?</label>
+          <textarea id="job" rows="4" placeholder="Tell us a bit about the job" disabled></textarea>
+        </div>
+        <button type="submit" disabled>Form disabled — demo site</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p class="disclosure">This is an example site built by SiteCollab to demonstrate our work. It is not a real business.</p>
+  <p class="copy">© Ferrow &amp; Son Joinery — a SiteCollab portfolio demo</p>
+</footer>
+
 </body>
 </html>
